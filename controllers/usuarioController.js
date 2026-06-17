@@ -1,21 +1,22 @@
-const usuarioModel = require('../models/usuarioModel')
-
 function criarUsuario(req, res) {
+    res.send('Cadastro funcionando!')
+}
 
-    usuarioModel.criarUsuario(
-        req.body,
-        (erro, resultado) => {
+function listarUsuarios(req, res) {
+    res.send('Listagem funcionando!')
+}
 
-            if (erro) {
-                console.log(erro)
-                return res.send('Erro ao cadastrar usuário.')
-            }
+function atualizarUsuario(req, res) {
+    res.send('Atualização funcionando!')
+}
 
-            res.send('Usuário cadastrado com sucesso!')
-        }
-    )
+function deletarUsuario(req, res) {
+    res.send('Exclusão funcionando!')
 }
 
 module.exports = {
-    criarUsuario
+    criarUsuario,
+    listarUsuarios,
+    atualizarUsuario,
+    deletarUsuario
 }
