@@ -9,40 +9,74 @@ body {
     background-color: #f3f4f6;
     color: #111827;
     display: flex;
+    min-height: 100vh;
 }
+
+/* ── Sidebar ── */
 
 .sidebar {
     width: 240px;
     min-height: 100vh;
     background-color: #111827;
-    color: white;
-    padding: 24px;
+    padding: 24px 16px;
     position: fixed;
     left: 0;
     top: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.sidebar h2 {
+.sidebar-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 0 8px;
     margin-bottom: 32px;
-    font-size: 26px;
+    letter-spacing: 1px;
 }
 
 .sidebar nav {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    flex: 1;
+}
+
+.nav-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6b7280;
+    padding: 16px 12px 4px;
+    display: block;
 }
 
 .sidebar a {
-    color: white;
+    color: #d1d5db;
     text-decoration: none;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: block;
 }
 
 .sidebar a:hover {
     background-color: #374151;
+    color: white;
 }
+
+.sidebar .nav-sair {
+    margin-top: auto;
+    color: #9ca3af;
+    border-top: 1px solid #374151;
+    padding-top: 16px;
+    margin-top: 32px;
+}
+
+.sidebar .nav-sair:hover {
+    color: white;
+}
+
+/* ── Content ── */
 
 .content {
     margin-left: 240px;
@@ -51,15 +85,52 @@ body {
 }
 
 .content h1 {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 24px;
+    color: #111827;
 }
+
+/* ── Dashboard / Stats ── */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-number {
+    font-size: 40px;
+    font-weight: bold;
+    color: #111827;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+/* ── Card ── */
 
 .card {
     background-color: white;
     padding: 24px;
     border-radius: 12px;
     margin-bottom: 32px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .section-header {
@@ -69,35 +140,101 @@ body {
     margin-bottom: 20px;
 }
 
+.section-header h2 {
+    font-size: 18px;
+    color: #111827;
+}
+
+/* ── Search ── */
+
+.search-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+    flex: 1;
+    max-width: 320px;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    color: #111827;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.search-info {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+/* ── Table ── */
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
 thead {
-    background-color: #1f2937;
-    color: white;
+    background-color: #f9fafb;
 }
 
-th,
-td {
-    padding: 12px;
-    border-bottom: 1px solid #e5e7eb;
+th {
+    padding: 12px 16px;
     text-align: left;
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    color: #374151;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
 }
 
 tbody tr:hover {
     background-color: #f9fafb;
 }
 
+/* ── Empty state ── */
+
+.empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* ── Buttons ── */
+
 .btn {
     border: none;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 6px;
     text-decoration: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
     display: inline-block;
+    line-height: 1.4;
+    transition: background-color 0.15s;
 }
 
 .primary {
@@ -105,12 +242,36 @@ tbody tr:hover {
     color: white;
 }
 
+.primary:hover {
+    background-color: #1d4ed8;
+    color: white;
+}
+
+.secondary {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.secondary:hover {
+    background-color: #d1d5db;
+}
+
 .edit {
     background-color: #f59e0b;
     color: white;
 }
 
+.edit:hover {
+    background-color: #d97706;
+    color: white;
+}
+
 .delete {
+    background-color: #ef4444;
+    color: white;
+}
+
+.delete:hover {
     background-color: #dc2626;
     color: white;
 }

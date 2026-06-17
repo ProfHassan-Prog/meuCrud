@@ -1,20 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
-    
+    <title>Login — MeuCRUD</title>
+    <link rel="stylesheet" href="/css/forms.css">
 </head>
-<body>
-    <div>
-        <h1>Login</h1>
-        <input type="text" placeholder="Nome">
-        <br><br>
-        <input type="password" placeholder="Senha">
-        <br><br>
-        <button>Enviar</button>
-        <a href="formulario.html">Cadastre-se!</a>
+<body class="login-body">
+
+    <div class="page-wrapper">
+
+        <div class="page-header">
+            <span class="logo">MeuCRUD</span>
+        </div>
+
+        <div class="form-card">
+            <h2>Acessar painel</h2>
+
+            <p id="erro" class="form-error"></p>
+
+            <form id="formLogin" onsubmit="fazerLogin(event)">
+
+                <div class="form-group">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" id="usuario" placeholder="Digite seu usuário" autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn-submit">Entrar</button>
+
+            </form>
+
+            <div class="form-footer">
+                <a href="/formulario.html">Cadastrar novo usuário</a>
+            </div>
+        </div>
+
     </div>
+
+    <script>
+        function fazerLogin(evento) {
+            evento.preventDefault()
+
+            const usuario = document.getElementById('usuario').value.trim()
+            const senha = document.getElementById('senha').value
+            const erro = document.getElementById('erro')
+
+            if (!usuario || !senha) {
+                erro.textContent = 'Preencha o usuário e a senha.'
+                erro.classList.add('visible')
+                return
+            }
+
+            if (usuario === 'admin' && senha === 'admin') {
+                window.location.href = '/adm'
+            } else {
+                erro.textContent = 'Usuário ou senha inválidos.'
+                erro.classList.add('visible')
+            }
+        }
+    </script>
+
 </body>
 </html>

@@ -3,101 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Clientes</title>
+    <title>Cadastrar Usuário — MeuCRUD</title>
+    <link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
 
-    <form action="/usuarios" method="POST">
-        <fieldset>
-            <legend><b>Formulário de Clientes</b></legend>
+    <div class="page-wrapper wide">
 
-            <br>
+        <div class="page-header">
+            <a class="logo" href="/">MeuCRUD</a>
+        </div>
 
-            <label for="nome">Nome Completo:</label>
-            <input type="text" name="nome" id="nome" required>
+        <div class="form-card">
+            <h2>Cadastrar usuário</h2>
 
-            <br><br>
+            <form action="/usuarios" method="POST">
 
-            <label for="email">E-mail:</label>
-            <input type="email" name="email" id="email" required>
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" name="nome" id="nome" placeholder="Ex: João da Silva" required>
+                </div>
 
-            <br><br>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Ex: joao@email.com" required>
+                </div>
 
-            <label for="senha">Senha:</label>
-            <input type="password" name="senha" id="senha" required>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="senha" placeholder="Mínimo 6 caracteres" required>
+                </div>
 
-            <br><br>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" name="telefone" id="telefone" placeholder="Ex: (45) 99999-9999">
+                </div>
 
-            <label for="telefone">Telefone:</label>
-            <input type="tel" name="telefone" id="telefone" required>
+                <div class="form-group">
+                    <label>Gênero</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="genero" value="feminino" required>
+                            Feminino
+                        </label>
+                        <label>
+                            <input type="radio" name="genero" value="masculino">
+                            Masculino
+                        </label>
+                        <label>
+                            <input type="radio" name="genero" value="outro">
+                            Outro
+                        </label>
+                    </div>
+                </div>
 
-            <br><br>
+                <div class="form-group">
+                    <label for="data_nascimento">Data de nascimento</label>
+                    <input type="date" name="data_nascimento" id="data_nascimento">
+                </div>
 
-            <p>Sexo:</p>
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade" id="cidade" placeholder="Ex: Medianeira">
+                </div>
 
-            <input type="radio" name="genero" id="feminino" value="feminino" required>
-            <label for="feminino">Feminino</label>
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select name="estado" id="estado">
+                        <option value="">Selecione um estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
 
-            <input type="radio" name="genero" id="masculino" value="masculino">
-            <label for="masculino">Masculino</label>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" name="endereco" id="endereco" placeholder="Ex: Rua das Flores, 123">
+                </div>
 
-            <input type="radio" name="genero" id="outro" value="outro">
-            <label for="outro">Outro</label>
+                <button type="submit" class="btn-submit">Cadastrar</button>
 
-            <br><br>
+            </form>
 
-            <label for="data_nascimento">Data de Nascimento:</label>
-            <input type="date" name="data_nascimento" id="data_nascimento" required>
+            <div class="form-footer">
+                <a href="/">Voltar ao início</a>
+                <a href="/adm">Ir para o painel</a>
+            </div>
+        </div>
 
-            <br><br>
+    </div>
 
-            <label for="cidade">Cidade:</label>
-            <input type="text" name="cidade" id="cidade" required>
-
-            <br><br>
-
-            <label for="estado">Estado:</label>
-            <select name="estado" id="estado" required>
-                <option value="">Selecione um estado</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-            </select>
-
-            <br><br>
-
-            <label for="endereco">Endereço:</label>
-            <input type="text" name="endereco" id="endereco" required>
-
-            <br><br>
-
-            <button type="submit" name="submit">Enviar</button>
-        </fieldset>
-    </form>
-<a href="index.html">Retornar a página principal</a>
 </body>
 </html>

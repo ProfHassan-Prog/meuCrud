@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 
 const usuarioRoutes = require('./routes/usuariosRoutes')
+const produtoRoutes = require('./routes/produtosRoutes')
 const admRoutes = require('./routes/admRoutes')
 
 const app = express()
@@ -16,6 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Rotas
 app.use('/usuarios', usuarioRoutes)
+app.use('/produtos', produtoRoutes)
 app.use('/adm', admRoutes)
 
 // Página inicial
