@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 
 const usuarioRoutes = require('./routes/usuariosRoutes')
+const admRoutes = require('./routes/admRoutes')
 
 const app = express()
 const port = 8000
@@ -15,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Rotas
 app.use('/usuarios', usuarioRoutes)
+app.use('/adm', admRoutes)
 
 // Página inicial
 app.get('/', (req, res) => {
